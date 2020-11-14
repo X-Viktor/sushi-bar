@@ -5,7 +5,11 @@ function burgerMenu() {
     let body = document.querySelector('body');
     menu.classList.toggle('menu__burger_active');
     burger.classList.toggle('burger-menu_active')
-    body.style.overflow = 'hidden';
+    if (menu.className === 'menu') {
+        body.style.overflow = 'auto';
+    } else {
+        body.style.overflow = 'hidden';
+    }
 }
 
 function moveCart() {
