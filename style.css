@@ -14,7 +14,7 @@ body {
   font-family: "Montserrat", sans-serif;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 400;
-  min-width: 250px;
+  min-width: 320px;
 }
 
 .container {
@@ -107,8 +107,23 @@ header .container .menu__link:hover:after, header .container .menu__link:focus:a
     display: none;
   }
 }
+header .container .menu__burger_active {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  background: #313D4C;
+}
+header .container .menu__burger_active .menu__link {
+  width: fit-content;
+  margin: 20px auto;
+}
 header .container .contacts {
-  flex: 2;
   font-size: 13px;
   display: flex;
   flex-direction: column;
@@ -125,12 +140,11 @@ header .container .contacts__phone {
   margin-top: 5px;
 }
 header .container .contacts__phone i {
-  margin-right: 0px;
+  margin-right: 0;
 }
 @media screen and (max-width: 1049px) {
   header .container .contacts {
     padding-right: 50px;
-    flex: auto;
   }
 }
 @media screen and (max-width: 575px) {
@@ -143,11 +157,8 @@ header .container .burger-menu {
   position: relative;
   height: 20px;
   width: 30px;
-}
-@media screen and (max-width: 1049px) {
-  header .container .burger-menu {
-    display: block;
-  }
+  cursor: pointer;
+  z-index: 5;
 }
 header .container .burger-menu__line {
   width: 30px;
@@ -161,12 +172,29 @@ header .container .burger-menu__line:before, header .container .burger-menu__lin
   height: 2px;
   position: absolute;
   background: rgba(255, 255, 255, 0.9);
+  transition: 0.3s ease-in-out;
 }
 header .container .burger-menu__line:before {
   top: 0;
 }
 header .container .burger-menu__line:after {
   bottom: 0;
+}
+@media screen and (max-width: 1049px) {
+  header .container .burger-menu {
+    display: block;
+  }
+}
+header .container .burger-menu_active .burger-menu__line {
+  width: 0;
+}
+header .container .burger-menu_active .burger-menu__line:before {
+  top: auto;
+  transform: rotate(45deg);
+}
+header .container .burger-menu_active .burger-menu__line:after {
+  bottom: auto;
+  transform: rotate(-45deg);
 }
 
 .section {
@@ -201,7 +229,7 @@ header .container .burger-menu__line:after {
   height: 400px;
   width: 250px;
   margin: 30px 20px 0;
-  background: #313D4C;
+  background: #B34766;
   border-radius: 20px;
   position: relative;
   box-shadow: 5px 5px 5px rgba(49, 61, 76, 0.25);
@@ -236,7 +264,7 @@ header .container .burger-menu__line:after {
 }
 .section .products .product__button {
   cursor: pointer;
-  color: #313D4C;
+  color: #B34766;
   font-size: 20px;
   width: 38px;
   height: 38px;
@@ -276,6 +304,26 @@ header .container .burger-menu__line:after {
 .cart i {
   margin-top: 15px;
   margin-left: -2px;
+}
+@media screen and (max-width: 575px) {
+  .cart {
+    position: static;
+    margin-right: 25px;
+    background: none;
+    width: auto;
+    height: auto;
+    cursor: auto;
+    font-size: 26px;
+  }
+  .cart i {
+    cursor: pointer;
+    margin: 0;
+  }
+  .cart:hover {
+    transform: none;
+    box-shadow: none;
+    color: #FEEEED;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

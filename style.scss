@@ -1,9 +1,11 @@
 $main-color: #313D4C;
 $background-color: #FEEEED;
+$card-color: #B34766;
 $font-color: rgba(255, 255, 255, 0.9);
 $logo-color: #F4B7C9;
 $title-color: rgba(0, 0, 0, 0.8);
 $font-style: 'Montserrat', sans-serif;
+$animation: 0.3s ease-in-out;
 
 @mixin underline {
   content: '';
@@ -29,7 +31,7 @@ body {
   font-family: $font-style;
   color: $font-color;
   font-weight: 400;
-  min-width: 250px;
+  min-width: 320px;
 }
 
 .container {
@@ -116,10 +118,29 @@ header {
       @media screen and (max-width: 1049px) {
         display: none;
       }
+
+      &__burger {
+        &_active {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 4;
+          background: $main-color;
+
+          .menu__link {
+            width: fit-content;
+            margin: 20px auto;
+          }
+        }
+      }
     }
 
     .contacts {
-      flex: 2;
       font-size: 13px;
       display: flex;
       flex-direction: column;
@@ -138,13 +159,12 @@ header {
         margin-top: 5px;
 
         i {
-          margin-right: 0px;
+          margin-right: 0;
         }
       }
 
       @media screen and (max-width: 1049px) {
         padding-right: 50px;
-        flex: auto;
       }
 
       @media screen and (max-width: 575px) {
@@ -157,10 +177,8 @@ header {
       position: relative;
       height: 20px;
       width: 30px;
-
-      @media screen and (max-width: 1049px) {
-        display: block;
-      }
+      cursor: pointer;
+      z-index: 5;
 
       &__line {
         width: 30px;
@@ -174,6 +192,7 @@ header {
           height: 2px;
           position: absolute;
           background: $font-color;
+          transition: $animation;
         }
 
         &:before {
@@ -182,6 +201,26 @@ header {
 
         &:after {
           bottom: 0;
+        }
+      }
+
+      @media screen and (max-width: 1049px) {
+        display: block;
+      }
+
+      &_active {
+        .burger-menu__line {
+          width: 0;
+
+          &:before {
+            top: auto;
+            transform: rotate(45deg);
+          }
+
+          &:after {
+            bottom: auto;
+            transform: rotate(-45deg);
+          }
         }
       }
     }
@@ -219,11 +258,11 @@ header {
       height: 400px;
       width: 250px;
       margin: 30px 20px 0;
-      background: $main-color;
+      background: $card-color;
       border-radius: 20px;
       position: relative;
       box-shadow: 5px 5px 5px rgba(49, 61, 76, 0.25);
-      transition: 0.3s ease-in-out;
+      transition: $animation;
 
       &:hover {
         box-shadow: 8px 8px 8px rgba(49, 61, 76, 0.25);
@@ -259,7 +298,7 @@ header {
 
       &__button {
         cursor: pointer;
-        color: $main-color;
+        color: $card-color;
         font-size: 20px;
         width: 38px;
         height: 38px;
@@ -294,7 +333,7 @@ header {
   right: 30px;
   bottom: 30px;
   box-shadow: 3px 3px 3px rgba(49, 61, 76, 0.25);
-  transition: 0.3s ease-in-out;
+  transition: $animation;
 
   &:hover {
     transform: scale(1.1);
@@ -304,5 +343,33 @@ header {
   i {
     margin-top: 15px;
     margin-left: -2px;
+  }
+
+  @media screen and (max-width: 575px) {
+    position: static;
+    margin-right: 25px;
+    background: none;
+    width: auto;
+    height: auto;
+    cursor: auto;
+    font-size: 26px;
+
+    i {
+      cursor: pointer;
+      margin: 0;
+    }
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+      color: #FEEEED;
+    }
+
+    //width: 100px;
+    //left: 50%;
+    //margin-left: -50px;
+    //z-index: 3;
+    //bottom: 0;
+    //border-radius: 50% 50% 0 0;
   }
 }
