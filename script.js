@@ -4,8 +4,8 @@ function burgerMenu() {
     let burger = document.querySelector('.burger-menu');
     let body = document.querySelector('body');
     menu.classList.toggle('menu__burger_active');
-    burger.classList.toggle('burger-menu_active')
-    if (menu.className === 'menu') {
+    burger.classList.toggle('burger-menu_active');
+    if (menu.classList.contains('menu__burger_active')) {
         body.style.overflow = 'auto';
     } else {
         body.style.overflow = 'hidden';
@@ -13,10 +13,14 @@ function burgerMenu() {
 }
 
 function moveCart() {
-    if (window.innerWidth < 575) {
+    let menu = document.querySelector('.menu');
+    let contacts = document.querySelector('.contacts');
+    if (window.innerWidth < 767) {
         let cart = document.querySelector('.cart');
-        let menu = document.querySelector('.menu');
         menu.before(cart);
+        menu.append(contacts);
+    } else {
+        menu.after(contacts);
     }
 }
 

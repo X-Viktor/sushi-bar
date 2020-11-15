@@ -118,6 +118,7 @@ header .container .menu__burger_active {
   bottom: 0;
   z-index: 4;
   background: #313D4C;
+  min-width: 320px;
 }
 header .container .menu__burger_active .menu__link {
   width: fit-content;
@@ -147,9 +148,17 @@ header .container .contacts__phone i {
     padding-right: 50px;
   }
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
   header .container .contacts {
-    display: none;
+    flex-direction: row;
+    width: 100%;
+    text-align: center;
+    margin: 50px 0 0;
+    padding: 0;
+  }
+  header .container .contacts__location, header .container .contacts__phone {
+    margin: 0;
+    flex: 6;
   }
 }
 header .container .burger-menu {
@@ -282,6 +291,12 @@ header .container .burger-menu_active .burger-menu__line:after {
     margin: 30px 10px 0;
   }
 }
+@media screen and (max-width: 767px) {
+  .section .products .product {
+    width: 230px;
+    height: 370px;
+  }
+}
 
 .cart {
   text-align: center;
@@ -305,7 +320,7 @@ header .container .burger-menu_active .burger-menu__line:after {
   margin-top: 15px;
   margin-left: -2px;
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
   .cart {
     position: static;
     margin-right: 25px;
