@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'catalog/css/bootstrap.min.css' %}">
+
+    <title>
+      {% block title %}
+      Суши-бар "Сакура" | Дальнереченск
+      {% endblock %}
+    </title>
+  </head>
+
+  <body class="container">
+<!--    <div id="header">-->
+<!--      <a href="/" class="logo">Сакура</a>-->
+<!--    </div>-->
+
+<!--    <div id="subheader">-->
+<!--        <div class="cart">-->
+<!--            Your cart is empty.-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div id="content" class="text-danger mb-3">
+    {% block content %}
+    {% endblock %}
+    </div>
+  </body>
+</html>

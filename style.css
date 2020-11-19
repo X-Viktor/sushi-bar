@@ -151,6 +151,7 @@ header .container .contacts__phone i {
 @media screen and (max-width: 767px) {
   header .container .contacts {
     flex-direction: row;
+    justify-content: space-evenly;
     width: 100%;
     text-align: center;
     margin: 50px 0 0;
@@ -158,7 +159,6 @@ header .container .contacts__phone i {
   }
   header .container .contacts__location, header .container .contacts__phone {
     margin: 0;
-    flex: 6;
   }
 }
 header .container .burger-menu {

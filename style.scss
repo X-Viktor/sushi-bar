@@ -170,6 +170,7 @@ header {
 
       @media screen and (max-width: 767px) {
         flex-direction: row;
+        justify-content: space-evenly;
         width: 100%;
         text-align: center;
         margin: 50px 0 0;
@@ -177,7 +178,6 @@ header {
 
         &__location, &__phone {
           margin: 0;
-          flex: 6;
         }
       }
     }
